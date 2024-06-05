@@ -1,8 +1,7 @@
 <template>
-  <nav>
-    <RouterLink to="/">Go to Home</RouterLink>
-    <RouterLink to="/about">Go to About</RouterLink>
-  </nav>
+  <NavBar />
   <RouterView />
 </template>
-<script></script>
+<script setup>
+import NavBar from "./components/NavBar.vue";
+</script>
