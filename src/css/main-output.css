@@ -562,10 +562,6 @@ video {
   display: inline;
 }
 
-.rounded {
-  border-radius: 0.25rem;
-}
-
 .font-serif {
   font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
 }

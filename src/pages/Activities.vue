@@ -11,21 +11,18 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { onMounted, ref, watch } from "vue";
 import { useAppStore } from "../stores/store";
-import axios from "axios";
 
 const store = useAppStore();
 const loadingActivities = ref(true);
 
-axios({
-  method: "get",
-  url: `${store.apiUrl}/activities`,
-  params: {
-    api_key: store.apiKey,
-  },
-}).then((response) => {
-  console.log(response.data);
-  loadingActivities.value = false;
+onMounted(async () => {
+  if (store.activities.data.length) {
+    loadingActivities.value = false;
+  } else {
+    await store.getActivities();
+    loadingActivities.value = false;
+  }
 });
 </script>
