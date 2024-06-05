@@ -11,8 +11,8 @@
 <script setup>
 const links = [
   { path: "/", name: "Home" },
+  { path: "/activities", name: "Activities" },
   { path: "/about", name: "About" },
-  { path: "/contact", name: "Contact" },
 ];
 </script>
 
