@@ -5,9 +5,11 @@
 
     <p v-if="loadingParks">Loading...</p>
     <div class="parks-container">
-      <ParkButton v-for="park in store.parks.data" :key="park.id" :park="park" />
+      <ParkButton v-for="park in store.parks.data" :key="park.id" :park="park" @click="selectedPark = park" />
     </div>
   </div>
+
+  <ParkDetails v-if="selectedPark" :park="selectedPark" @close="selectedPark = null" />
 </template>
 
 <script setup>
@@ -15,9 +17,11 @@ import { onMounted, ref } from "vue";
 import { useAppStore } from "../stores/store";
 
 import ParkButton from "../components/ParkButton.vue";
+import ParkDetails from "../components/ParkDetails.vue";
 
 const store = useAppStore();
 const loadingParks = ref(true);
+const selectedPark = ref(null);
 
 onMounted(async () => {
   if (store.parks.data.length) {

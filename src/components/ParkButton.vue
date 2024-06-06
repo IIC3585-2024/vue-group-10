@@ -6,9 +6,7 @@
 </template>
 
 <script setup>
-const props = defineProps({
-  park: Object,
-});
+const props = defineProps(["park"]);
 </script>
 
 <style scoped>
