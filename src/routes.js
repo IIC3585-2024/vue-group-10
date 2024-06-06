@@ -2,11 +2,11 @@ import { createRouter, createMemoryHistory } from "vue-router";
 
 import Home from "./pages/Home.vue";
 import About from "./pages/About.vue";
-import Activities from "./pages/Activities.vue";
+import Parks from "./pages/Parks.vue";
 
 const routes = [
   { path: "/", component: Home },
-  { path: "/activities", component: Activities },
+  { path: "/parks", component: Parks },
   { path: "/about", component: About },
 ];
 
