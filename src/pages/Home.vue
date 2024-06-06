@@ -8,6 +8,9 @@
 
 <style scoped>
 .router-link {
-  background-color: #3182ce;
+  background-color: lightblue;
+  border: solid;
+  border-width: 2px;
+  border-radius: 5px;
 }
 </style>

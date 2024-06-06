@@ -50,7 +50,7 @@ const parkActivities = props.park.activities
   .join(", ");
 </script>
 
-<style>
+<style scoped>
 .modal-backdrop {
   position: fixed;
   top: 0;
