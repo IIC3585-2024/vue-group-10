@@ -3,7 +3,8 @@
     <div class="modal" @click="(event) => event.stopPropagation()">
       <h1 class="font-serif text-3xl">{{ park.fullName }}</h1>
       <div class="side-by-side">
-        <img :src="park.images[0].url" class="park-image" alt="Park Image" />
+        <!-- <img :src="park.images[0].url" class="park-image" alt="Park Image" /> -->
+        <ImageScroller :images="park.images" />
         <div>
           <h2 class="text-3xl">{{ park.designation }}</h2>
           <br />
@@ -31,6 +32,8 @@
 </template>
 
 <script setup>
+import ImageScroller from "../components/ImageScroller.vue";
+
 const props = defineProps(["park"]);
 const emit = defineEmits(["close"]);
 
