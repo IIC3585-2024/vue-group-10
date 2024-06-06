@@ -6,23 +6,27 @@ export const useAppStore = defineStore("app", () => {
   const apiUrl = "https://developer.nps.gov/api/v1";
   const apiKey = "PJ4z6sTPajlvaClquOjSQpcDuOSUbIfKv6gx3UDx";
 
-  const parks = ref({ data: [] });
+  const currentPage = ref(1);
+  const nPages = ref(0);
+  const parks = ref({});
 
-  async function getParks() {
+  async function fetchParks() {
     try {
       const response = await axios({
         method: "get",
         url: `${apiUrl}/parks`,
         params: {
           api_key: apiKey,
+          start: (currentPage.value - 1) * 50,
         },
       });
-      parks.value = response.data;
-      return parks.value;
+
+      nPages.value = Math.ceil(response.data.total / 50);
+      parks.value[currentPage.value] = response.data.data;
     } catch (error) {
       console.error(error);
     }
   }
 
-  return { parks, getParks };
+  return { parks, currentPage, nPages, fetchParks };
 });
